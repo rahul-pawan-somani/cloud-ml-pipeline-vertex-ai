@@ -178,11 +178,3 @@ The Vertex AI deployment achieved performance comparable to the locally executed
 ├── vertex_ai_ml_pipeline.ipynb
 └── README.md
 ```
-
----
-
-## Academic Context
-
-Developed as coursework for **COM3021 – Data Science at Scale** at the University of Exeter.
-
-The project investigates practical machine learning deployment workflows using Google Cloud Vertex AI and evaluates model performance across cloud-hosted and locally executed environments.
