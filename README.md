@@ -1,16 +1,25 @@
-# Scalable Machine Learning Pipeline on Google Cloud Vertex AI
+# Cloud-Based Machine Learning Deployment and Evaluation using Vertex AI
 
 ## Overview
 
-This project demonstrates the deployment, evaluation and comparison of machine learning models using Google Cloud Platform (GCP), Vertex AI and TensorFlow.
+This project explores the deployment, evaluation, and comparison of machine learning models using Google Cloud Vertex AI, TensorFlow, and the Fashion-MNIST dataset.
 
-Using the Fashion-MNIST dataset, multiple image classification approaches were evaluated, including:
+The work focuses on deploying a TensorFlow SavedModel to Google Cloud, configuring cloud-hosted prediction endpoints, performing remote inference, and comparing model performance against locally executed models and a custom Convolutional Neural Network (CNN).
 
-* A cloud-deployed TensorFlow model hosted on Vertex AI
-* A locally hosted TensorFlow model
-* A custom Convolutional Neural Network (CNN) trained from scratch
+The project was completed as part of **COM3021 – Data Science at Scale** during the final year of the BSc Computer Science programme at the University of Exeter.
 
-The project explores both cloud-native machine learning deployment workflows and model performance evaluation within a production-style environment.
+---
+
+## Project Objectives
+
+The primary objectives of this project were to:
+
+* Deploy a TensorFlow model using Google Cloud Vertex AI
+* Configure cloud-based model serving infrastructure
+* Perform inference through Vertex AI prediction endpoints
+* Compare cloud-hosted and locally executed model performance
+* Develop and evaluate a custom Convolutional Neural Network (CNN)
+* Investigate practical machine learning deployment workflows on Google Cloud Platform
 
 ---
 
@@ -27,32 +36,42 @@ The project explores both cloud-native machine learning deployment workflows and
 
 ---
 
-## Key Features
+## Solution Architecture
 
-* Cloud-based model deployment using Vertex AI
-* Google Cloud Storage integration
-* Vertex AI Model Registry usage
-* Endpoint-based inference
-* TensorFlow model evaluation
-* Custom CNN development and training
-* Model comparison and performance analysis
-* Fashion-MNIST image classification
+```text
+Fashion-MNIST Dataset
+          │
+          ▼
+ TensorFlow SavedModel
+          │
+          ▼
+ Google Cloud Storage
+          │
+          ▼
+ Vertex AI Model Registry
+          │
+          ▼
+ Vertex AI Endpoint
+          │
+          ▼
+ Cloud-Hosted Predictions
+```
 
 ---
 
 ## Project Workflow
 
-### 1. Cloud Storage Setup
+### 1. Cloud Storage Configuration
 
-A TensorFlow SavedModel was uploaded and stored in Google Cloud Storage.
+The TensorFlow SavedModel artefacts were uploaded to Google Cloud Storage and organised for deployment through Vertex AI.
 
 ![Cloud Storage Bucket](screenshots/bucket.png)
 
 ---
 
-### 2. Model Registry Integration
+### 2. Vertex AI Model Registry
 
-The model was imported into Vertex AI Model Registry and configured for deployment.
+The model was imported into Vertex AI Model Registry, allowing versioned model management and deployment configuration.
 
 ![Model Registry](screenshots/model-registry.png)
 
@@ -60,7 +79,7 @@ The model was imported into Vertex AI Model Registry and configured for deployme
 
 ### 3. Endpoint Deployment
 
-The model was successfully deployed to a Vertex AI prediction endpoint, enabling cloud-hosted inference.
+The registered model was successfully deployed to a Vertex AI prediction endpoint, enabling cloud-hosted inference.
 
 ![Vertex AI Endpoint](screenshots/endpoint.png)
 
@@ -68,7 +87,7 @@ The model was successfully deployed to a Vertex AI prediction endpoint, enabling
 
 ### 4. Vertex AI Workbench Environment
 
-A dedicated Vertex AI Workbench instance was used for model evaluation and experimentation.
+A dedicated Vertex AI Workbench instance was used for experimentation, model evaluation, and endpoint interaction.
 
 ![Workbench Environment](screenshots/workbench-machine.png)
 
@@ -76,31 +95,56 @@ A dedicated Vertex AI Workbench instance was used for model evaluation and exper
 
 ### 5. Model Artefacts
 
-The deployed TensorFlow SavedModel consisted of standard TensorFlow artefacts including metadata, variables and model configuration files.
+The deployed TensorFlow SavedModel contained the standard TensorFlow model structure, including metadata, variables, and model configuration files.
 
 ![Model Directory](screenshots/model-directory.png)
 
 ---
 
-### 6. Dataset Structure
+### 6. Dataset Organisation
 
-Training and testing datasets were organised for model evaluation and experimentation.
+Training and testing datasets were structured for model evaluation and experimentation using the Fashion-MNIST image classification dataset.
 
 ![Dataset Directory](screenshots/dataset-directory.png)
 
 ---
 
-## Model Evaluation
+## Models Evaluated
 
-Three approaches were evaluated:
+Three different approaches were evaluated throughout the project:
 
-| Model                    | Purpose                     |
-| ------------------------ | --------------------------- |
-| Vertex AI Deployed Model | Cloud-hosted inference      |
-| Local TensorFlow Model   | Local deployment comparison |
-| Custom CNN               | Performance optimisation    |
+| Model                       | Purpose                   |
+| --------------------------- | ------------------------- |
+| Vertex AI Deployed Model    | Cloud-hosted inference    |
+| Local TensorFlow SavedModel | Local execution benchmark |
+| Custom CNN                  | Performance optimisation  |
 
-The project compared model behaviour across deployment environments while exploring scalable machine learning workflows.
+---
+
+## Results
+
+| Model                       | Test Accuracy |
+| --------------------------- | ------------- |
+| Custom CNN                  | 91.97%        |
+| Local TensorFlow SavedModel | 88.03%        |
+| Vertex AI Deployed Model    | 87.79%        |
+
+The custom CNN achieved the strongest classification performance on the Fashion-MNIST test set, outperforming both the provided TensorFlow SavedModel and the cloud-deployed Vertex AI endpoint.
+
+The Vertex AI deployment achieved performance comparable to the locally executed TensorFlow model while demonstrating cloud-based model serving capabilities.
+
+---
+
+## Key Features
+
+* Google Cloud Storage integration
+* Vertex AI Model Registry configuration
+* Vertex AI endpoint deployment
+* Cloud-hosted model inference
+* TensorFlow model evaluation
+* Custom CNN development and training
+* Fashion-MNIST image classification
+* Comparative model performance analysis
 
 ---
 
@@ -111,24 +155,34 @@ The project compared model behaviour across deployment environments while explor
 * Computer Vision
 * Cloud Computing
 * Model Deployment
-* MLOps Fundamentals
-* Data Processing
 * TensorFlow
-* Google Cloud Platform
+* Google Cloud Platform (GCP)
 * Vertex AI
+* Data Processing
+* Model Evaluation
 
 ---
 
-## Repository Contents
+## Repository Structure
 
-| File                        | Description                            |
-| --------------------------- | -------------------------------------- |
-| vertex_ai_ml_pipeline.ipynb | Main project notebook                  |
-| requirements.txt            | Python dependencies                    |
-| screenshots/                | Deployment and infrastructure evidence |
+```text
+.
+├── screenshots/
+│   ├── bucket.png
+│   ├── dataset-directory.png
+│   ├── endpoint.png
+│   ├── model-directory.png
+│   ├── model-registry.png
+│   └── workbench-machine.png
+│
+├── vertex_ai_ml_pipeline.ipynb
+└── README.md
+```
 
 ---
 
 ## Academic Context
 
-Developed as part of the Data Science at Scale module during the final year of BSc Computer Science at the University of Exeter.
+Developed as coursework for **COM3021 – Data Science at Scale** at the University of Exeter.
+
+The project investigates practical machine learning deployment workflows using Google Cloud Vertex AI and evaluates model performance across cloud-hosted and locally executed environments.
