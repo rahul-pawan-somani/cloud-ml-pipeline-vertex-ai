@@ -1,4 +1,4 @@
-# Cloud-Based Machine Learning Deployment and Evaluation using Vertex AI
+# Fashion-MNIST Model Deployment and Evaluation on Google Cloud Vertex AI
 
 ## Overview
 
